@@ -131,9 +131,16 @@ public class SimpleThemeDecorator extends PageDecorator {
 
     /** Get the complete header HTML for all configured theme elements. */
     public String getHeaderHtml() {
+        return getHeaderHtml(false);
+    }
+
+    public String getHeaderHtml(Boolean forBlueOcean) {
         Set<String> data = new LinkedHashSet<>();
         boolean injectCss = shouldInjectCss();
         for (ThemeElement element : elements) {
+            if (element.isBlueOcean() != forBlueOcean) {
+                continue;
+            }
             element.collectHeaderFragment(data, injectCss);
         }
         return StringUtils.join(data, "\n");

@@ -10,3 +10,6 @@ appearance:
           url: "https://example.bogus/test.js"
       - faviconUrl:
           url: "https://vignette.wikia.nocookie.net/deadpool/images/6/64/Favicon.ico"
+      - jsUrl:
+          blueOcean: true
+          url: "https://example.bogus/blue.js"
